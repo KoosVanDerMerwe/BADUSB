@@ -6,3 +6,5 @@ This Bad USB will go grab the users information, email (it will attempt), public
 
 This can be used on either the flipper zero or a usb. If you want to put it onto a USB you will need to create a automatic USB.
 
+The collected data will be saved to the file UsersLOOT.txt in the temp folder.
+
