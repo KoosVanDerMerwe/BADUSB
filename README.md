@@ -8,4 +8,4 @@ This can be used on either the flipper zero or a usb. If you want to put it onto
 
 The collected data will be saved to the file UsersLOOT.txt in the temp folder.
 
-To use this, depending on what powershell version is on the victims PC. Most PC's have older powershell version so the ULT-BADUSB-powershell.txt file will work, but if the PC has a newer powershell version then you must use the ULT-BADUSB-pwsh.txt
+To use this, depending on what powershell version is on the victims PC. Most PC's have older powershell version so the "ULT-BADUSB-powershell.txt" file will work, but if the PC has a newer powershell version then you must use the "ULT-BADUSB-pwsh.txt" file
