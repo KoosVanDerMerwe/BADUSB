@@ -85,7 +85,7 @@ $wifiProfiles = $profileNames | ForEach-Object {
 $output = @"
 Full Name: $fullName
 
-Email: $PCName
+PC Name: $PCName
 
 ------------------------------------------------------------------------------------------------------------------------------
 Public IP: 
